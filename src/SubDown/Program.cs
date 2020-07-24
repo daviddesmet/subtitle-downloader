@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 using Colorful;
 using Console = Colorful.Console;
-using ShellProgressBar;
+//using ShellProgressBar;
 
 namespace SubDown
 {
     class Program
     {
+#if DEBUG
+        private const string API_URL = "http://sandbox.thesubdb.com/?action=";
+#else
         // Docs: http://thesubdb.com/api/
         private const string API_URL = "http://api.thesubdb.com/?action=";
+#endif
 
         private enum UrlActions
         {
@@ -48,6 +52,8 @@ namespace SubDown
                     PrintValue("MOVIE", filePath);
 
                     await ProcessMovieFile(filePath);
+
+                    PrintLineBreak();
                     PrintExitMessage();
                 }
                 else
@@ -59,7 +65,7 @@ namespace SubDown
             if (processedByArg)
                 return;
 
-            Console.WriteLine("Do you know you can drag & drop a file onto the exe to download a subtitle?", Color.Yellow);
+            Console.WriteLine("Do you know you can drag & drop a file on top of the exe to download a subtitle?", Color.Yellow);
             PrintLineBreak();
 
             var busy = true;
