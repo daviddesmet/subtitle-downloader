@@ -10,7 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
+    env:
+      name: app
+      
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -23,3 +26,12 @@ jobs:
       
     - name: Build
       run: dotnet build --configuration Release --no-restore
+    
+    - name: Publish
+      run: dotnet publish -c Release -o ${{ github.workspace }}/artifact --no-build
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:	
+        name: ${{ env.name }}
+        path: ${{ github.workspace }}/artifact/**/*
