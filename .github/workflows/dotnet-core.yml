@@ -30,7 +30,7 @@ jobs:
       run: dotnet build -c Release -r win-x64 --no-restore
     
     - name: Publish
-      run: dotnet publish -c Release -o ${{ github.workspace }}/artifact --no-build -r win-x64
+      run: dotnet publish -c Release -o ${{ github.workspace }}/artifact --no-build -r win-x64 -p:PublishReadyToRun=true -p:PublishTrimmed=true
         
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2

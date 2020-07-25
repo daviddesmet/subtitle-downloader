@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      name: app-win
+      name: app-linux
       
     steps:
     - uses: actions/checkout@v2
