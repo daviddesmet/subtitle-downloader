@@ -1,6 +1,7 @@
 # SubDB Subtitle Downloader
 
 A no hassle subtitle downloader console app for SubDB.
+That's right, you don't have to manually search for a subtitle, the app will do it for you accurately.
 
 [SubDB](http://thesubdb.com/) is a free, centralized subtitle database intended to be used only by opensource and non-commercial softwares.
 
