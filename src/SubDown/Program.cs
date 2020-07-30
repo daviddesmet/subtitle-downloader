@@ -204,7 +204,7 @@ namespace SubDown
             if (response is null || !response.IsSuccessStatusCode)
             {
                 PrintError("No subtitles found :(");
-                return default;
+                return new string[0];
             }
 
             var subtitles = await response.Content.ReadAsStringAsync();
